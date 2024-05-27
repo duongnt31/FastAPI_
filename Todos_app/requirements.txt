@@ -1,0 +1,13 @@
+fastapi
+typing
+psycopg2-binary
+sqlalchemy
+pydantic
+starlette
+passlib
+bcrypt
+jose
+pyJWT
+uvicorn
+alembic
+python-jose

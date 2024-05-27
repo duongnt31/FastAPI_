@@ -1,0 +1,2 @@
+run: docker start docker__db_1 docker__web_1
+build: sudo docker-compose up --build

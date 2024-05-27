@@ -1,0 +1,59 @@
+- Insert Database table (Todos):
+    + INSERT INTO todos (title, description, priority, complete) -> explain: insert data into 'todos' table
+    + VALUES ('Go to store', 'To pick up eggs', 4, False) 
+
+- Select SQL queries:
+    + SELECT * FROM todos; -> explain: select all data from todos table
+    + SELECT title FROM todos; -> explain: select 'title' column from todos table
+    + SELECT title, description FROM todos; -> explain: select 'title' and 'description' columns from todos table
+
+- Where SQL queries: 
+    + SELECT * FROM todos WHERE priority = 4; -> explain: select all data from todos table where 'priority' column is 4
+
+- Update SQL queries:
+    + UPDATE todos SET priority = 3 WHERE title = 'Go to store'; -> explain: update 'priority' column to 3 where 'title' column is 'Go to store'
+
+- Delete SQL queries:
+    + DELETE FROM todos WHERE title = 'Go to store'; -> explain: delete data from todos table where 'title' column is 'Go to store'
+
+
+- sqlite3:
+    + .mode column -> explain: display data in column format
+    + .mode markdown -> explain: display data in markdown format
+    + .mode box -> explain: display data in box format
+    + .mode table -> explain: display data in table format
+
+- router in fastapi -> explain: router is a class that includes all the routes for an API. It is used to define the path and the methods that the API will use to interact with the client.
+
+- bcrypt -> explain: bcrypt is a password hashing function designed by Niels Provos and David Mazières, based on the Blowfish cipher. It is used to hash passwords and store them securely in the database.
+
+- Json Web Token (JWT) -> explain: JWT is an open standard that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed.
+                       (JWT là một tiêu chuẩn mở xác định một cách nhỏ gọn và khép kín để truyền thông tin một cách an toàn giữa các bên dưới dạng đối tượng JSON. Thông tin này có thể được xác minh và tin cậy vì nó được ký điện tử)
+        + JWT can be used to authenticate users and protect routes in an API.
+        + structure: A JWT is created of three separate part separated by dots (.) which includes:
+            - Header: Contains the type of token and the hashing algorithm used:
+                {
+                    "alg": "HS256", -> explain: hashing algorithm used
+                    "typ": "JWT" -> explain: type of token
+                }
+                -> JWT header is then encoded using "Base64" encoding to create the first part of the JWT (alg)
+
+            - Payload: Contains the claims or data that the token is carrying:
+                {
+                    "sub": "1234567890", -> explain: subject of the token
+                    "name": "John Doe", -> explain: name of the user
+                    "admin": true -> explain: if the user is an admin or not
+                }
+                -> JWT payload is then encoded using "Base64" encoding to create the second part of the JWT (sub)
+                -> JWT payload consists of data (three different type: registered, public, private
+                
+            - Signature: Contains the encoded header, encoded payload, a secret key, and the hashing algorithm specified in the header:
+                HMACSHA256(
+                    base64UrlEncode(header) + "." +
+                    base64UrlEncode(payload),
+                    secret
+                )
+                -> JWT signature is created by hashing the encoded header and encoded payload with a secret key using the hashing algorithm specified in the header (HMACSHA256)
+                -> The signature is then encoded using "Base64" encoding to create the third part of the JWT (signature)
+
+
